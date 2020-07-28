@@ -124,3 +124,7 @@ dmypy.json
 .pyre/
 
 venv3d/
+
+.DS_Store
+
+data/
