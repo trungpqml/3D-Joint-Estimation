@@ -20,13 +20,16 @@ class Config(object):
 
     # input, output
     training_in_path = join(data_dir, training_in_filename)
+    training_gt_path = join(data_dir, training_gt_filename)
+    testing_in_path = join(data_dir, testing_in_filename)
+    testing_gt_path = join(data_dir, testing_gt_filename)
 
     # training second model config
     epochs = 250
     train_batch_size = 256
     learning_rate = 1e-3
-    learning_decay = 0.96
-    decay_step_second = 50
+    learning_rate_decay = 0.96
+    learning_rate_decay_step = 50
     optimizer = 'adamW'
     weight_decay = 1e-5
     bone_lambda = 10.

@@ -1,0 +1,2 @@
+class BoneLoss(object):
+    pass
