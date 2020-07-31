@@ -13,18 +13,20 @@ def step_decay(epoch):
     return learning_rate
 
 
-def get_optimizier(optimizer_name):
+def get_optimizer(optimizer_name):
     # Optimizer
     if optimizer_name == 'adam':
         optimizer = Adam(learning_rate=cfg.learning_rate)
     elif optimizer_name == 'nadam':
         optimizer = Nadam(learning_rate=cfg.learning_rate)
-    elif optimizer == '':
+    elif optimizer == 'sgd':
         optimizer = SGD(
             learning_rate=cfg.learning_rate,
             momentum=0.9,
             nesterov=True
         )
+    # elif optimizer == 'adamw':
+    #     pass
     else:
         print(f"Error! Unknown optimizer name: {optimizer_name}")
         assert 0

@@ -1,13 +1,20 @@
+# All configuration 
+from ..config import cfg
+
+# Data loader
 from .data.load_data import load_train_data
 
-from ..config import cfg
-from .helper.callbacks import get_callbacks
+# Helper function
+from .helper.callback import get_callbacks
 from .helper.loss import get_loss_function
-from .helper.optimizer import get_optimizier, get_scheduler
+from .helper.optimizer import get_optimizer, get_scheduler
 from .helper.plot import plot_history
 from .helper.transformation import get_transformation
+
+# Model
 from .model.model import get_refine_net
 
+# Other
 import matplotlib.pyplot as plt
 import numpy as np
 import time
