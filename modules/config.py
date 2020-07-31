@@ -17,12 +17,15 @@ class Config(object):
     output_dir = join(current_dir, 'output')
     vis_dir = join(output_dir, 'vis')
     log_dir = join(output_dir, 'log')
+    best_model_dir = join(output_dir, 'best_model')
 
     # input, output
     training_in_path = join(data_dir, training_in_filename)
     training_gt_path = join(data_dir, training_gt_filename)
     testing_in_path = join(data_dir, testing_in_filename)
     testing_gt_path = join(data_dir, testing_gt_filename)
+
+    best_model_path = join(best_model_dir, 'best_model.h5')
 
     # training second model config
     epochs = 250
@@ -36,6 +39,7 @@ class Config(object):
     joint_lambda = 1.
     scheduler = 'cyclicLR'
     seed = 0
+    patience = 20
 
     # testing config
     test_batch_size = 64
