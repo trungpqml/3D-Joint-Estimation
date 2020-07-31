@@ -13,7 +13,7 @@ def step_decay(epoch):
     return learning_rate
 
 
-def get_optimizier(optimizer_name, scheduler_name, model):
+def get_optimizier(optimizer_name):
     # Optimizer
     if optimizer_name == 'adam':
         optimizer = Adam(learning_rate=cfg.learning_rate)
@@ -28,7 +28,10 @@ def get_optimizier(optimizer_name, scheduler_name, model):
     else:
         print(f"Error! Unknown optimizer name: {optimizer_name}")
         assert 0
+    return optimizer
 
+
+def get_scheduler(scheduler_name):
     # Scheduler
     if scheduler_name == 'stepLR':
         scheduler = LearningRateScheduler(step_decay)
@@ -39,4 +42,4 @@ def get_optimizier(optimizer_name, scheduler_name, model):
         print("Error! Unkown scheduler name: ", scheduler_name)
         assert 0
 
-    return optimizer, scheduler
+    return scheduler

@@ -45,6 +45,20 @@ class Config(object):
     gpu_ids = '0'
     num_gpus = 1
     continue_train = False
+    first_model = 'resnext'
+    best_model = 0
+    test_subsampling_ratio = 5
+
+    def set_args(self, gpu=gpu_ids, continue_train=False, first_model=first_model, best_model=best_model, ratio=test_subsampling_ratio, test_batch_size=test_batch_size):
+        self.gpu_ids = gpu
+        self.num_gpus = len(self.gpu_ids.split(','))
+        self.continue_train = continue_train
+        self.first_model = first_model
+        self.best_model = best_model
+        self.test_subsampling_ratio = ratio
+        self.test_batch_size = test_batch_size
+        os.environ["CUDA_VISIBLE_DEVICES"] = self.gpu_ids
+        print('>>> Using GPU: {}'.format(self.gpu_ids))
 
 
 cfg = Config()

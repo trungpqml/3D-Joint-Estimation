@@ -15,4 +15,6 @@ class RefineNet():
 
 
 def get_refine_net(cfg, is_train):
-    pass
+    model = RefineNet()
+    print(model.summary())
+    return model
