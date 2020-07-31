@@ -1,4 +1,4 @@
-from tensorflow.keras.optimizers import SGD, Adam, Nadam
+from tensorflow.keras.optimizers import SGD, Adam, Nadam, schedules
 from tensorflow.keras.callbacks import LearningRateScheduler
 from ...config import cfg
 import math
@@ -27,9 +27,16 @@ def get_optimizier(optimizer_name, scheduler_name, model):
         )
     else:
         print(f"Error! Unknown optimizer name: {optimizer_name}")
+        assert 0
 
     # Scheduler
     if scheduler_name == 'stepLR':
         scheduler = LearningRateScheduler(step_decay)
+    elif scheduler_name == 'cyclicLR':
+        # scheduler = schedules.ExponentialDecay()
+        pass
+    else:
+        print("Error! Unkown scheduler name: ", scheduler_name)
+        assert 0
 
     return optimizer, scheduler

@@ -5,8 +5,8 @@ def get_transformation(X, Y, compute_optimal_scale=False):
     X0 = X - muX
     Y0 = Y - muY
 
-    ssX = (X0**2).sum()
-    ssY = (Y0**2).sum()
+    ssX = (X0**2.).sum()
+    ssY = (Y0**2.).sum()
 
     # centered Frobenius norm
     normX = np.sqrt(ssX)
@@ -33,7 +33,7 @@ def get_transformation(X, Y, compute_optimal_scale=False):
     if compute_optimal_scale:
         b = traceTA * normX / normY
         d = 1 - traceTA ** 2
-        Z = normX * traceTA*np.dot(Y0, T) + muX
+        Z = normX * traceTA * np.dot(Y0, T) + muX
     else:
         b = 1
         d = 1 + ssY/ssX - 2 * traceTA * normY/normX
