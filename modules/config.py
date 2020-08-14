@@ -26,6 +26,7 @@ class Config(object):
     testing_gt_path = join(data_dir, testing_gt_filename)
 
     best_model_path = join(best_model_dir, 'best_model.h5')
+    joint_num = 18
 
     # training second model config
     epochs = 250

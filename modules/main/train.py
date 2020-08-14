@@ -1,4 +1,4 @@
-# All configuration 
+# All configuration
 from ..config import cfg
 
 # Data loader
@@ -40,7 +40,7 @@ def train():
         trainset_gt,
         epochs=cfg.epochs,
         callbacks=calback_list,
-        validation_data=(trainset_in_val, trainset_gt_val),
+        validation_split=0.2,
         verbose=1
     )
 
