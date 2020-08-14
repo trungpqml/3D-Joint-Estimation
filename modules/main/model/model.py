@@ -1,5 +1,7 @@
 import sys
 import os
+import pprint
+from refine_net import RefineNet
 
 sys.path.append(
     os.path.dirname(
@@ -20,9 +22,4 @@ def get_refine_net():
 
 if __name__ == "__main__":
     model = get_refine_net()
-    model.compile(
-        optimizer='sgd',
-        loss='huber',
-        metrics=['accuracy']
-    )
-    print(model.summary())
+    # pprint.pprint(model.summary())

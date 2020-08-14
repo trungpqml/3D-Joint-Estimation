@@ -7,10 +7,10 @@ TODO:
     5. TensorBoard
     6. EarlyStopping callback
 '''
-from ...config import cfg
-from os.path import join, exists
-from os import makedirs
 from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping, Callback
+from os import makedirs
+from os.path import join, exists
+# from ...config import cfg
 
 
 def get_run_logdir():
@@ -20,7 +20,8 @@ def get_run_logdir():
     return run_logdir
 
 
-def get_tensorboard_callback(log_dir):
+def get_tensorboard_callback():
+    run_logdir = get_run_logdir()
     return TensorBoard(run_logdir)
 
 
@@ -70,3 +71,10 @@ def get_callbacks():
     callback_list.append(get_earlystopping_callback())
     callback_list.append(get_logging_callback())
     return callback_list
+
+
+if __name__ == "__main__":
+    import sys
+    print(sys.path)
+    # callback_list = get_callbacks()
+    # print(callback_list)

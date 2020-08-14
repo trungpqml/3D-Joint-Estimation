@@ -1,4 +1,4 @@
-from ...config import cfg
+from config import cfg
 import matplotlib.pyplot as plt
 from os.path import join, exists
 from os import makedirs
