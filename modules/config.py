@@ -1,9 +1,10 @@
 import os
+import sys
 from os import makedirs
 from os.path import join, exists, dirname, abspath
 
 
-class Config(object):
+class Config:
     # dataset
     training_in_filename = 'data_train_in.npy'
     training_gt_filename = 'data_train_gt.npy'
@@ -69,4 +70,4 @@ class Config(object):
 cfg = Config()
 
 if __name__ == "__main__":
-    print(cfg)
+    print("\n".join(sys.path))

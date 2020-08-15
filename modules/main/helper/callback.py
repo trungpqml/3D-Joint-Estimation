@@ -7,14 +7,26 @@ TODO:
     5. TensorBoard
     6. EarlyStopping callback
 '''
-from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping, Callback
-from os import makedirs
+import sys
+import os
 from os.path import join, exists
-# from ...config import cfg
+from os import makedirs
+from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping, Callback
+
+sys.path.append(
+    os.path.dirname(
+        os.path.dirname(
+            os.path.dirname(
+                os.path.realpath(__file__)
+            )
+        )
+    )
+)
 
 
 def get_run_logdir():
     import time
+    from config import cfg
     run_id = time.strftime('run_%Y_%m_%d-%H_%M_%S')
     run_logdir = join(cfg.log_dir, run_id)
     return run_logdir
@@ -26,6 +38,7 @@ def get_tensorboard_callback():
 
 
 def get_checkpoint_callback():
+    from config import cfg
     if not exists(cfg.best_model_path):
         makedirs(cfg.best_model_path)
 
@@ -36,6 +49,7 @@ def get_checkpoint_callback():
 
 
 def get_earlystopping_callback():
+    from config import cfg
     return EarlyStopping(
         patience=cfg.patience,
         restore_best_weights=True
@@ -74,7 +88,5 @@ def get_callbacks():
 
 
 if __name__ == "__main__":
-    import sys
-    print(sys.path)
-    # callback_list = get_callbacks()
-    # print(callback_list)
+    callback_list = get_callbacks()
+    print(*callback_list)
