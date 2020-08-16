@@ -16,6 +16,9 @@ def plot_history(history):
     plt.gca().set_ylim(0, 1)
 
     figure_path = join(cfg.vis_dir, 'training_plot.png')
+    if not exists(cfg.vis_dir):
+        makedirs(cfg.vis_dir)
+
     plt.savefig(figure_path)
 
     plt.show()

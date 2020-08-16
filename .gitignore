@@ -128,3 +128,8 @@ venv3d/
 .DS_Store
 
 data/
+modules/output/log/
+
+modules/output/best_model/
+
+modules/output/vis/

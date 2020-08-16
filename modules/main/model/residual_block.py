@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.layers import Layer
 from tensorflow.keras.models import Sequential
-from dense_block import DenseBlock
+from .dense_block import DenseBlock
 import pprint
 
 
@@ -18,8 +18,7 @@ class ResidualBlock(Layer):
 
     def call(self, inputs):
         Z = inputs
-        for layer in self.hidden:
-            Z = layer(Z)
+        Z = self.hidden(Z)
         return inputs + Z
 
     def get_config(self):

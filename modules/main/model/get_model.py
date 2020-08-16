@@ -1,17 +1,10 @@
 import sys
 import os
 import pprint
-from refine_net import RefineNet
+from .refine_net import RefineNet
 
-sys.path.append(
-    os.path.dirname(
-        os.path.dirname(
-            os.path.dirname(
-                os.path.abspath(__file__)
-            )
-        )
-    )
-)
+sys.path.insert(0, os.path.abspath(
+    os.path.join(os.path.abspath(__file__), '..', '..', '..')))
 
 
 def get_refine_net():
@@ -23,3 +16,4 @@ def get_refine_net():
 if __name__ == "__main__":
     model = get_refine_net()
     # pprint.pprint(model.summary())
+    print("Get model module!")

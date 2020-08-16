@@ -1,7 +1,7 @@
-import os
-import sys
 from os import makedirs
 from os.path import join, exists, dirname, abspath
+import os
+import sys
 
 
 class Config:

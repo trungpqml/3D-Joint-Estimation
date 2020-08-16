@@ -1,7 +1,7 @@
 from tensorflow.keras import Model
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, BatchNormalization, LeakyReLU, Input
-from residual_block import ResidualBlock
+from .residual_block import ResidualBlock
 import pprint
 
 
