@@ -19,6 +19,7 @@ class Config:
     vis_dir = join(output_dir, 'vis')
     log_dir = join(output_dir, 'log')
     best_model_dir = join(output_dir, 'best_model')
+    video_dir = join(vis_dir, 'video')
 
     # input, output
     training_in_path = join(data_dir, training_in_filename)
